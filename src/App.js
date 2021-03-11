@@ -5,8 +5,8 @@ import { withAuthenticator } from 'aws-amplify-react'
 import { createTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
 import { onCreateTodo } from './graphql/subscriptions';
-
 import awsconfig from './aws-exports';
+import '@aws-amplify/ui/dist/style.css';
 
 Amplify.configure(awsconfig);
 
@@ -85,7 +85,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <>
       <p>user: {user != null && user.username}</p>
       <button onClick={signOut}>Sign out</button>
       <div>
@@ -114,7 +114,7 @@ function App() {
           })}
         </table>
       </div>
-    </div>
+    </>
   );
 }
 
